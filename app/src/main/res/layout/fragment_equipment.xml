@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="38dp"
+        android:text="设备管理"
+        android:textColor="#ff0f1010"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <com.compass.uavmanager.view.CommonTabLayout
+        android:id="@+id/tab_equipment"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_item_project"
+        android:layout_height="40dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        tl:tl_textSelectColor="@color/black"
+        tl:tl_textUnselectColor="#8A8C9B"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        tl:tl_iconVisible="false"
+        tl:tl_indicator_corner_radius="3dp"
+        tl:tl_indicator_color="@color/white"
+        tl:tl_indicator_margin_left="5dp"
+        tl:tl_indicator_margin_right="5dp"
+        tl:tl_indicator_style="BLOCK"
+        tl:tl_textsize="14sp" />
+    <androidx.viewpager.widget.ViewPager
+        android:layout_marginTop="15dp"
+        android:id="@+id/vp_equipment"
+        android:layout_below="@+id/tab_equipment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>

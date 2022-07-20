@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_btn_login.xml" value="0.1445" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_btn_loginout.xml" value="0.1265" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_data_select.xml" value="0.152" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_home_project_half.xml" value="0.1135" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_item_project.xml" value="0.152" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_item_project_.xml" value="0.146" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_login_input.xml" value="0.1445" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_nav_equipment_nor.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_nav_equipment_pre.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_position.xml" value="0.1315" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/bg_tv_equipment_sn.xml" value="0.1505" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/radio_text_selector.xml" value="0.134" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/tab_equipment_selector.xml" value="0.116" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/tab_flight_selector.xml" value="0.116" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/tab_gally_selector.xml" value="0.116" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/tab_home_selector.xml" value="0.116" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/drawable/tab_personal_selector.xml" value="0.116" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/activity_main.xml" value="0.1234375" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/fragment_equipment.xml" value="0.13903985507246377" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/fragment_equipment_type.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/fragment_flight.xml" value="0.13903985507246377" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/fragment_gallery.xml" value="0.13903985507246377" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/fragment_home.xml" value="0.13903985507246377" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/fragment_personal.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/item_equipment_type.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/item_gallery.xml" value="0.10989583333333333" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/item_home_project.xml" value="0.1490036231884058" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/layout_tab.xml" value="0.1125" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/layout_tab_bottom.xml" value="0.1125" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/layout_tab_left.xml" value="0.1125" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/layout_tab_right.xml" value="0.1125" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/layout_tab_segment.xml" value="0.1125" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/layout_tab_top.xml" value="0.1125" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/time_scroller_toolbar.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/timepicker_layout.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/timepicker_line.xml" value="0.1" />
+        <entry key="..\:/workspace/UAVManager/app/src/main/res/layout/tv_item.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.compass.uavmanager.view.CustomViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rg_main" />
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_home_selector"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/rb_equipment"
+            style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_equipment_selector"
+            android:text="设备管理" />
+
+
+
+        <RadioButton
+            android:id="@+id/rb_gallery"
+            style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_gally_selector"
+            android:text="相机库" />
+
+        <RadioButton
+            android:id="@+id/rb_personal"
+            style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_personal_selector"
+            android:text="个人中心" />
+    </RadioGroup>
+</RelativeLayout>

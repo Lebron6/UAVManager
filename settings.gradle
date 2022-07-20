@@ -1,0 +1,6 @@
+rootProject.name = "UAVManager"
+include ':app'
+include ':immersionbar'
+
+
+
