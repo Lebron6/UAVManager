@@ -24,4 +24,7 @@
     <color name="timepicker_dialog_bg">#80000000</color>
     <color name="timepicker_line">#e8e8e8</color>
 
+
+    <color name="text_blue">#3B4AF8</color>
+
 </resources>

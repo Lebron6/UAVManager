@@ -17,14 +17,16 @@
     android:gravity="center_vertical"
     android:layout_width="match_parent"
     android:layout_height="25dp">
+
     <TextView
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Processing"
         android:textColor="#ffbec0ce"
-        android:textSize="10sp"
-        />
+        android:textSize="10sp" />
     <TextView
+        android:id="@+id/tv_status"
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
         />
 </RelativeLayout>
     <TextView
+        android:id="@+id/tv_project_name"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/layout_top"
         android:layout_width="wrap_content"

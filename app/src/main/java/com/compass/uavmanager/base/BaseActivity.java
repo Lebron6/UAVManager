@@ -10,6 +10,8 @@ import com.compass.uavmanager.tools.AppManager;
 import com.gyf.immersionbar.ImmersionBar;
 import com.orhanobut.logger.Logger;
 
+import org.greenrobot.eventbus.EventBus;
+
 public abstract class BaseActivity<T extends ViewBinding>  extends AppCompatActivity {
     /**
      * activity堆栈管理
@@ -28,16 +30,16 @@ public abstract class BaseActivity<T extends ViewBinding>  extends AppCompatActi
         initImmersionBar();
         initView();
         initData();
+        if (useEventBus()) {
+            EventBus.getDefault().register(this);
+        }
     }
 
     public abstract T getViewBinding();
 
-
-    //初始化视图
-    public abstract void initView();
-
     //初始化数据
-    public abstract void initData();
+    public abstract void initData();//初始化数据
+    public abstract void initView();
 
     public void initImmersionBar() {
         //在BaseActivity里初始化
@@ -46,7 +48,7 @@ public abstract class BaseActivity<T extends ViewBinding>  extends AppCompatActi
     }
 
 
-//    public abstract boolean useEventBus();
+    public abstract boolean useEventBus();
 
     public void loggerSimpleName() {
         TAG = getClass().getSimpleName();
@@ -58,8 +60,10 @@ public abstract class BaseActivity<T extends ViewBinding>  extends AppCompatActi
         super.onDestroy();
         // 从栈中移除activity
         appManager.finishActivity(this);
-//        if (useEventBus == true) {
-//            EventBus.getDefault().unregister(this);
-//        }
+        if (useEventBus == true) {
+            EventBus.getDefault().unregister(this);
+        }
     }
+    protected boolean useEventBus = false;
+
 }

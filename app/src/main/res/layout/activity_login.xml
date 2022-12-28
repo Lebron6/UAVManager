@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/x314"
-        android:background="@color/black" />
+        android:background="@mipmap/bg_compass" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x30"
-            android:layout_marginTop="@dimen/x30"
+            android:layout_marginTop="@dimen/x20"
             android:text="Hi!你好,"
             android:textColor="#ff0f1010"
             android:textSize="28sp"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x30"
-            android:layout_marginTop="@dimen/x74"
+            android:layout_marginTop="@dimen/x54"
             android:text="欢迎来到无人机平台"
             android:textColor="#ff0f1010"
             android:textSize="18sp"
@@ -38,10 +38,10 @@
         <RelativeLayout
             android:id="@+id/layout_account"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x50"
+            android:layout_height="@dimen/x40"
             android:layout_below="@+id/layout_welcome"
             android:layout_marginLeft="@dimen/x30"
-            android:layout_marginTop="@dimen/x27"
+            android:layout_marginTop="@dimen/x17"
             android:layout_marginRight="@dimen/x30"
             android:background="@drawable/bg_login_input">
 
@@ -51,6 +51,8 @@
                 android:layout_height="match_parent"
                 android:layout_toLeftOf="@+id/iv_account"
                 android:background="@null"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:gravity="center_vertical"
                 android:hint="请输入用户名"
                 android:paddingLeft="@dimen/x30"
@@ -71,7 +73,7 @@
         <RelativeLayout
             android:id="@+id/layout_password"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x50"
+            android:layout_height="@dimen/x40"
             android:layout_below="@+id/layout_account"
             android:layout_marginLeft="@dimen/x30"
             android:layout_marginTop="@dimen/x19"
@@ -80,13 +82,14 @@
 
             <EditText
                 android:id="@+id/et_password"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_toLeftOf="@+id/iv_password"
                 android:background="@null"
                 android:gravity="center_vertical"
                 android:hint="请输入密码"
-                android:inputType="textPassword"
                 android:paddingLeft="@dimen/x30"
                 android:textColor="@color/black"
                 android:textColorHint="@color/grey"
@@ -104,17 +107,35 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_forget_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/layout_password"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/x17"
-            android:layout_marginRight="@dimen/x30"
-            android:text="忘记密码？"
-            android:textColor="#ff3531ff"
-            android:textSize="13sp" />
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/layout_sn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/x40"-->
+<!--            android:layout_below="@+id/layout_password"-->
+<!--            android:layout_marginLeft="@dimen/x30"-->
+<!--            android:layout_marginTop="@dimen/x19"-->
+<!--            android:layout_marginRight="@dimen/x30"-->
+<!--            android:background="@drawable/bg_login_input">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/et_sn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@null"-->
+<!--                android:enabled="false"-->
+<!--                android:focusable="true"-->
+<!--                android:focusableInTouchMode="true"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:hint="接入飞行器获取SN码"-->
+<!--                android:paddingLeft="@dimen/x30"-->
+<!--                android:text="1ZNBHCH00C004M"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textColorHint="@color/button_normal"-->
+<!--                android:textSize="13sp" />-->
+
+
+<!--        </RelativeLayout>-->
+
     </RelativeLayout>
 
     <TextView

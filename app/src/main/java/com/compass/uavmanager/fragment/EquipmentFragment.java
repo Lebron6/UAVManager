@@ -2,7 +2,6 @@ package com.compass.uavmanager.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
@@ -16,7 +15,7 @@ import com.compass.uavmanager.callback.CustomTabEntity;
 import com.compass.uavmanager.callback.OnTabSelectListener;
 import com.compass.uavmanager.databinding.FragmentEquipmentBinding;
 import com.compass.uavmanager.entity.TabEntity;
-import com.compass.uavmanager.fragment.equipment.EquipmentType;
+import com.compass.uavmanager.fragment.equipment.EquipmentTypeFragment;
 
 import java.util.ArrayList;
 
@@ -27,8 +26,13 @@ public class EquipmentFragment extends BaseFragment {
     FragmentEquipmentBinding mBinding;
 
     private ArrayList<Fragment> mFragments=new ArrayList<>() ;
-    private String[] mTitles=new String[]{"全部", "在线设备", "离线设备"} ;
+    private String[] mTitles=new String[]{"全部", "在线", "离线"} ;
     private ArrayList<CustomTabEntity> mTabEntities=new ArrayList<>() ;
+
+    @Override
+    public boolean useEventBus() {
+        return false;
+    }
 
     @Override
     public ViewBinding getViewBinding(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class EquipmentFragment extends BaseFragment {
 
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], R.drawable.bg_nav_equipment_pre, R.drawable.bg_nav_equipment_nor));
-            mFragments.add(new EquipmentType(i));
+            mFragments.add(new EquipmentTypeFragment(mTitles[i]));
         }
         mBinding.tabEquipment.setTabData(mTabEntities);
 //        MyPagerAdapter myPagerAdapter =new MyPagerAdapter(getActivity().getSupportFragmentManager(),mFragments,mTitles);

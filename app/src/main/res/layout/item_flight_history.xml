@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/x60"
+    android:layout_marginLeft="@dimen/y14"
+    android:layout_marginRight="@dimen/y14"
+    android:orientation="vertical"
+
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x11"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="机器标题最多九个字符"
+                android:textColor="#ff0f1010"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/layout_center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_Depart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="罗盘无人机部"
+                    android:textColor="#ff0f1010"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_long"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="飞行时长：2021-12-12 12:21:12"
+                    android:textColor="#ff8a8c9b"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_dis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="飞行距离：22km"
+                    android:textColor="#ff8a8c9b"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2022-12-18-19:00"
+                android:textColor="#ff8a8c9b"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/iv_play"
+        android:layout_width="@dimen/y35"
+        android:layout_height="@dimen/y35"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/x15"
+        android:layout_marginRight="4dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/y8"
+            android:layout_height="@dimen/y12"
+            android:background="@mipmap/ic_right_me" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_alignParentBottom="true"
+        android:background="#60BEC0CE" />
+</RelativeLayout>

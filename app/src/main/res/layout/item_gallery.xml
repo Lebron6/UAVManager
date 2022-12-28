@@ -23,7 +23,7 @@
                 android:id="@+id/iv_gallery"
                 android:layout_width="@dimen/x167"
                 android:layout_height="@dimen/x116"
-                android:background="@color/black" />
+                />
 
             <TextView
                 android:id="@+id/tv_name"

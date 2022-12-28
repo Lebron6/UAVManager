@@ -11,13 +11,14 @@
         android:background="@color/black" />
 
     <ImageView
+        android:id="@+id/iv_user_photo"
         android:layout_width="@dimen/x90"
         android:layout_height="@dimen/x90"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/x86"
-        android:background="@color/white" />
+        android:layout_marginTop="@dimen/x86" />
 
     <TextView
+        android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -27,19 +28,19 @@
         android:textSize="22sp" />
 
     <TextView
-        android:id="@+id/tv_user_account"
+        android:id="@+id/tv_fly_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/x230"
-        android:text="admicnos@luopan.com"
+        android:text="飞行时长"
         android:textColor="#ffffffff"
         android:textSize="15sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/y290"
-        android:layout_below="@+id/tv_user_account"
+        android:layout_below="@+id/tv_fly_time"
         android:layout_marginLeft="@dimen/x14"
         android:layout_marginTop="@dimen/x19"
         android:layout_marginRight="@dimen/x14"
@@ -70,6 +71,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/tv_user_role"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -102,6 +104,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/tv_phone_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -134,6 +137,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/tv_dep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -144,6 +148,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/layout_password"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -174,6 +179,7 @@
                 android:textColor="#ff8a8c9b"
                 android:textSize="15sp" />
         </RelativeLayout>
+
     </LinearLayout>
 
     <TextView

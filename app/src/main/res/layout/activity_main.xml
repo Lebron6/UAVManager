@@ -30,7 +30,11 @@
             style="@style/BottomTabStyle"
             android:drawableTop="@drawable/tab_equipment_selector"
             android:text="设备管理" />
-
+        <RadioButton
+            android:id="@+id/rb_flight_history"
+            style="@style/BottomTabStyle"
+            android:drawableTop="@drawable/tab_flight_selector"
+            android:text="飞行历史" />
 
 
         <RadioButton

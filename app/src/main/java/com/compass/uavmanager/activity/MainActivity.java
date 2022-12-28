@@ -24,13 +24,11 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
     }
-
-    @Override
+@Override
     public void initView() {
         pageAdapter = new MainPageAdapter(getSupportFragmentManager());
         mBinding.vpContent.setAdapter(pageAdapter);
-//        vpContent.setOffscreenPageLimit(2);
-        mBinding.vpContent.setOffscreenPageLimit(2);
+        mBinding.vpContent.setOffscreenPageLimit(4);
         mBinding.vpContent.setOnPageChangeListener(onPagerChangerListener);
         mBinding.rgMain.setOnCheckedChangeListener(onCheckedChangeListener);
         mBinding.rbHome.setChecked(true);
@@ -39,6 +37,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initData() {
         Log.e("sh1:", SH1Utils.getSHA1(this));
+    }
+
+    @Override
+    public boolean useEventBus() {
+        return false;
     }
 
     ViewPager.OnPageChangeListener onPagerChangerListener = new ViewPager.OnPageChangeListener() {
@@ -57,9 +60,12 @@ public class MainActivity extends BaseActivity {
                     mBinding.rbEquipment.setChecked(true);
                     break;
                 case 2:
-                    mBinding.rbGallery.setChecked(true);
+                    mBinding.rbFlightHistory.setChecked(true);
                     break;
                 case 3:
+                    mBinding.rbGallery.setChecked(true);
+                    break;
+                case 4:
                     mBinding.rbPersonal.setChecked(true);
                     break;
             }
@@ -87,12 +93,16 @@ public class MainActivity extends BaseActivity {
             case R.id.rb_equipment:
                 mBinding.vpContent.setCurrentItem(1, false);
                 break;
-            case R.id.rb_gallery:
+            case R.id.rb_flight_history:
                 mBinding.vpContent.setCurrentItem(2, false);
                 break;
-            case R.id.rb_personal:
+            case R.id.rb_gallery:
                 mBinding.vpContent.setCurrentItem(3, false);
                 break;
+            case R.id.rb_personal:
+                mBinding.vpContent.setCurrentItem(4, false);
+                break;
+
 
         }
     }

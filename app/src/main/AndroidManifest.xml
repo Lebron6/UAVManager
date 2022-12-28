@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.compass.uavmanager">
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -19,6 +20,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
+
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature
@@ -27,6 +30,7 @@
     <uses-feature
         android:name="android.hardware.usb.accessory"
         android:required="true" />
+
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
@@ -36,13 +40,17 @@
 
     <!-- 开机启动所需权限 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--弃用硬件加速-->
+    <!-- android:hardwareAccelerated="false"-->
     <application
         android:name=".app.UAVApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/appname"
+        android:label="@string/appName"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        tools:replace="android:label"
         android:theme="@style/BaseTheme">
         <activity
             android:name=".activity.LoginActivity"
@@ -53,7 +61,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.MainActivity" android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -61,30 +71,42 @@
         <uses-library android:name="com.android.future.usb.accessory" />
 
 
-        <meta-data
-            android:name="com.dji.sdk.API_KEY"
-            android:value="32d93d7cb3d08f0d69d9020c" />
+<!--        <meta-data-->
+<!--            android:name="com.dji.sdk.API_KEY"-->
+<!--            android:value="32d93d7cb3d08f0d69d9020c" />-->
         <!-- 启用高德地图服务 -->
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="67cc0078add145d26fec131e6a7d3c9d" />
 
-        <activity
-            android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"
-            android:theme="@android:style/Theme.Translucent">
-            <intent-filter>
-                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-            </intent-filter>
+<!--        <activity-->
+<!--            android:name="dji.sdk.sdkmanager.DJIAoaControllerActivity"-->
+<!--            android:theme="@android:style/Theme.Translucent">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />-->
+<!--            </intent-filter>-->
 
-            <meta-data
-                android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
-                android:resource="@xml/accessory_filter" />
-        </activity>
+<!--            <meta-data-->
+<!--                android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"-->
+<!--                android:resource="@xml/accessory_filter" />-->
+<!--        </activity>-->
 
-        <service android:name="dji.sdk.sdkmanager.DJIGlobalService" /> <!-- DJI SDK -->
+<!--        <service android:name="dji.sdk.sdkmanager.DJIGlobalService" /> &lt;!&ndash; DJI SDK &ndash;&gt;-->
         <service android:name="com.amap.api.location.APSService"></service>
+        <activity
+            android:name=".activity.FlightHistoryActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+        <activity
+            android:name=".activity.EquipmentDetailsActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
 
+        <activity
+            android:name=".activity.LiveShowActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
     </application>
 
 </manifest>

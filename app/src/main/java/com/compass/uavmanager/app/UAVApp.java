@@ -5,7 +5,6 @@ import android.content.Context;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
-import com.secneo.sdk.Helper;
 
 
 public class UAVApp extends Application{
@@ -18,7 +17,6 @@ public class UAVApp extends Application{
     @Override
     protected void attachBaseContext(Context paramContext) {
         super.attachBaseContext(paramContext);
-        Helper.install(UAVApp.this);
     }
 
     @Override

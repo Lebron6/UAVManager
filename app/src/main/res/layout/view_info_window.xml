@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:minWidth="100dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/layout_marker"
+        android:minHeight="50dp"
+        android:minWidth="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_data_select"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/y10"
+        android:paddingLeft="@dimen/y10"
+        android:paddingRight="@dimen/y10"
+        android:paddingBottom="@dimen/y10">
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:background="@mipmap/ic_home_air"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_name"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="无人机001"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_marginTop="@dimen/x2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="无人机001"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

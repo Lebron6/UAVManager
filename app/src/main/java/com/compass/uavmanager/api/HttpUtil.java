@@ -31,4 +31,13 @@ public class HttpUtil {
         UavApi vamApi = retrofit.create(UavApi.class);
         return vamApi;
     }
+    public UavApi createRequest2() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BaseUrl.ipAddress2)
+                .client(okhttpclient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        UavApi vamApi = retrofit.create(UavApi.class);
+        return vamApi;
+    }
 }

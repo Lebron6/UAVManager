@@ -1,5 +1,6 @@
 package com.compass.uavmanager.entity;
 
+
 import com.compass.uavmanager.callback.CustomTabEntity;
 
 public class TabEntity implements CustomTabEntity {

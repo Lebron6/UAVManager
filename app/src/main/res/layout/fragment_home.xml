@@ -7,10 +7,10 @@
     tools:ignore="MissingDefaultResource">
 
 
-    <dji.ux.widget.MapWidget
-        android:id="@+id/map_widget"
+    <com.amap.api.maps.MapView
+        android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <TextView
         android:layout_width="80dp"
