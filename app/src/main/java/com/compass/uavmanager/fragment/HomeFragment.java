@@ -7,11 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.viewbinding.ViewBinding;
-
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -30,7 +27,6 @@ import com.compass.uavmanager.entity.OverView;
 import com.compass.uavmanager.tools.PreferenceUtils;
 import com.compass.uavmanager.tools.RecyclerViewHelper;
 import com.compass.uavmanager.tools.ToastUtil;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -71,6 +67,7 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
+
         aMap.setOnMarkerClickListener(new AMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
@@ -177,7 +174,6 @@ public class HomeFragment extends BaseFragment {
 
     /**
      * 自定义Marker样式转为Bitmap
-     *
      * @param projectName
      * @return
      */

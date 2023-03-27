@@ -44,6 +44,7 @@
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_btn_login.xml" value="0.104" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_btn_loginout.xml" value="0.104" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_data_select.xml" value="0.1285" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_flight_state.xml" value="0.1015" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_home_project_half.xml" value="0.1285" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_item_project.xml" value="0.1045" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_login_input.xml" value="0.104" />
@@ -51,6 +52,7 @@
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/progress_small.xml" value="0.1455" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/tab_equipment_selector.xml" value="0.1065" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/tab_flight_selector.xml" value="0.1065" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout-land/activity_live_show.xml" value="0.14666666666666667" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_equipment_details.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_flight_history.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_live_show.xml" value="0.1" />

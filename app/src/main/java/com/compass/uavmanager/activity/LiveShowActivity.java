@@ -2,24 +2,19 @@ package com.compass.uavmanager.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 
+import com.amap.api.maps.AMap;
 import com.compass.uavmanager.api.HttpUtil;
 import com.compass.uavmanager.base.BaseActivity;
 import com.compass.uavmanager.databinding.ActivityLiveShowBinding;
-import com.compass.uavmanager.databinding.ActivityUpdataPasswordBinding;
-import com.compass.uavmanager.entity.FlightHistoryDetails;
 import com.compass.uavmanager.entity.LiveUrlResult;
-import com.compass.uavmanager.entity.UpdataPasswordResult;
-import com.compass.uavmanager.tools.AppManager;
 import com.compass.uavmanager.tools.PreferenceUtils;
 import com.compass.uavmanager.tools.ToastUtil;
-import com.orhanobut.logger.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +26,7 @@ public class LiveShowActivity extends BaseActivity {
 
     private ActivityLiveShowBinding mBinding;
     public static String SNCODE = "sn";
+    AMap aMap;
 
     public static void actionStart(Context context, String sn) {
         Intent intent = new Intent(context, LiveShowActivity.class);
@@ -44,9 +40,18 @@ public class LiveShowActivity extends BaseActivity {
     }
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mBinding.mapView.onCreate(savedInstanceState);
+        aMap = mBinding.mapView.getMap();
+        aMap.getUiSettings().setZoomControlsEnabled(false);
+    }
+
+    @Override
     public ViewBinding getViewBinding() {
         mBinding = ActivityLiveShowBinding.inflate(getLayoutInflater());
         return mBinding;
+
     }
 
     @Override
@@ -86,7 +91,29 @@ public class LiveShowActivity extends BaseActivity {
 
     private void initPlayer() {
         mBinding.player.setVideoPath("rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp");
-
+        mBinding.player.setOnPreparedListener(new IMediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(IMediaPlayer mp) {
+                mBinding.player.start();
+            }
+        });
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mBinding.mapView.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mBinding.mapView.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mBinding.mapView.onDestroy();
+    }
 }
