@@ -13,6 +13,7 @@
         android:layout_height="match_parent"/>
 
     <TextView
+        android:id="@+id/tv_position"
         android:layout_width="80dp"
         android:layout_height="33dp"
         android:layout_above="@+id/layout_bottom"

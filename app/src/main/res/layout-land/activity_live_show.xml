@@ -27,6 +27,7 @@
 
     <com.amap.api.maps.MapView
         android:id="@+id/map_view"
+        android:visibility="gone"
         android:layout_width="@dimen/x164"
         android:layout_height="@dimen/x96"
         android:layout_alignParentLeft="true"

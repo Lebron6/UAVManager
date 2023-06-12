@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.viewbinding.ViewBinding;
+
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -27,6 +29,7 @@ import com.compass.uavmanager.entity.OverView;
 import com.compass.uavmanager.tools.PreferenceUtils;
 import com.compass.uavmanager.tools.RecyclerViewHelper;
 import com.compass.uavmanager.tools.ToastUtil;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,7 +57,16 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initView() {
-
+        mBinding.tvPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                aMap.moveCamera(CameraUpdateFactory.newCameraPosition(
+                        CameraPosition.fromLatLngZoom(
+                                new LatLng(
+                                        31.335505,120.618026),
+                                        10)));
+            }
+        });
         mBinding.layoutProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,9 +83,9 @@ public class HomeFragment extends BaseFragment {
         aMap.setOnMarkerClickListener(new AMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                if (!TextUtils.isEmpty(marker.getSnippet())){
-                    LiveShowActivity.actionStart(getActivity(),marker.getSnippet());
-                }else{
+                if (!TextUtils.isEmpty(marker.getSnippet())) {
+                    LiveShowActivity.actionStart(getActivity(), marker.getSnippet());
+                } else {
                     ToastUtil.showToast("获取设备SN失败");
                 }
                 return true;
@@ -97,18 +109,23 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onResponse(Call<HomeProject> call, Response<HomeProject> response) {
                 if (response.body() != null && response.body().getCode().equals("200")) {
-                    adapter.setData(response.body().getResults());
-                    aMap.moveCamera(CameraUpdateFactory.newCameraPosition(
-                            CameraPosition.fromLatLngZoom(
-                                    new LatLng(
-                                            Double.valueOf(response.body().getResults().get(0).getLatitude()),
-                                            Double.valueOf(response.body().getResults().get(0).getLongitude())),
-                                    12)));
-                    for (int i = 0; i < response.body().getResults().size(); i++) {
-                        LatLng latLng = new LatLng(Double.valueOf(response.body().getResults().get(i).getLatitude()),
-                                Double.valueOf(response.body().getResults().get(i).getLongitude()));
-                        addMarkersToMap(latLng, response.body().getResults().get(i));
+                    if (response.body().getResults() != null && response.body().getResults().size() > 0) {
+                        adapter.setData(response.body().getResults());
+                        aMap.moveCamera(CameraUpdateFactory.newCameraPosition(
+                                CameraPosition.fromLatLngZoom(
+                                        new LatLng(
+                                                Double.valueOf(response.body().getResults().get(0).getLatitude()),
+                                                Double.valueOf(response.body().getResults().get(0).getLongitude())),
+                                        12)));
+                        for (int i = 0; i < response.body().getResults().size(); i++) {
+                            LatLng latLng = new LatLng(Double.valueOf(response.body().getResults().get(i).getLatitude()),
+                                    Double.valueOf(response.body().getResults().get(i).getLongitude()));
+                            addMarkersToMap(latLng, response.body().getResults().get(i));
+                        }
+
+
                     }
+
                     //重要 创建自定义适配器
 //                    MapProjectAdapter adapter = new MapProjectAdapter(getActivity());
 //                    aMap.setInfoWindowAdapter(adapter);//设置自定义窗口adapter
@@ -135,7 +152,7 @@ public class HomeFragment extends BaseFragment {
                             LatLng latLng = new LatLng(Double.valueOf(boundedUavsDTO.getLatitude().substring(1, boundedUavsDTO.getLatitude().length())),
                                     Double.valueOf(boundedUavsDTO.getLongitude().substring(1, boundedUavsDTO.getLongitude().length())));
                             aMap.addMarker(new MarkerOptions().position(latLng)
-                                            .snippet(boundedUavsDTO.getUavCode())
+                                    .snippet(boundedUavsDTO.getUavCode())
                                     .icon(BitmapDescriptorFactory.fromBitmap(convertViewToBitmap(boundedUavsDTO))).draggable(false));
                         }
                     }
@@ -162,6 +179,7 @@ public class HomeFragment extends BaseFragment {
 
     /**
      * 往地图上添加marker/第二个参数表示如果是导入航线，为需要上传的航线数据赋值(航点的信息)
+     *
      * @param djiLatLng
      * @param projectName
      */
@@ -174,6 +192,7 @@ public class HomeFragment extends BaseFragment {
 
     /**
      * 自定义Marker样式转为Bitmap
+     *
      * @param projectName
      * @return
      */

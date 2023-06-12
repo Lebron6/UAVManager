@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
+
 import androidx.viewbinding.ViewBinding;
+
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -23,10 +25,12 @@ import com.compass.uavmanager.entity.FlightHistoryDetails;
 import com.compass.uavmanager.entity.FlightPoints;
 import com.compass.uavmanager.tools.PreferenceUtils;
 import com.compass.uavmanager.tools.ToastUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -80,14 +84,15 @@ public class FlightHistoryActivity extends BaseActivity {
     }
 
 
-    private int time=0;
+    private int time = 0;
+
     private void getFlightPoints() {
         HttpUtil httpUtil = new HttpUtil();
         httpUtil.createRequest2().flightPoints(PreferenceUtils.getInstance().getUserToken(),
                 getIntent().getStringExtra(ID)).enqueue(new Callback<FlightPoints>() {
             @Override
             public void onResponse(Call<FlightPoints> call, Response<FlightPoints> response) {
-                if (response.body()!=null&&response.body().getCode().equals("200")) {
+                if (response.body() != null && response.body().getCode().equals("200")) {
                     setDataToTextView(response.body().getResults().getFlightPointInfoVos());
                     List<LatLng> points = new ArrayList<>();
                     for (int i = 0; i < response.body().getResults().getPoints().size(); i++) {
@@ -130,34 +135,35 @@ public class FlightHistoryActivity extends BaseActivity {
     }
 
     Timer timer;
+
     private void setDataToTextView(List<FlightPoints.ResultsDTO.FlightPointInfoVosDTO> flightPointInfoVos) {
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                time=time+1;
+                time = time + 1;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (TextUtils.isEmpty(flightPointInfoVos.get(time).getPersentOne())){
+                        if (TextUtils.isEmpty(flightPointInfoVos.get(time).getPersentOne())) {
                             mBinding.tvBattery.setText("");
-                        }else{
+                        } else {
                             mBinding.tvBattery.setText(flightPointInfoVos.get(time).getPersentOne() + "%   "
-                                    + flightPointInfoVos.get(time).getVoltageOne()+"v");
+                                    + flightPointInfoVos.get(time).getVoltageOne() + "v");
                         }
-                        mBinding.tvGpsLevel.setText(flightPointInfoVos.get(time).getSatelliteCount()+"级");
-                        mBinding.tvDistance.setText(flightPointInfoVos.get(time).getOriginDistance()+"米");
-                        mBinding.tvWind.setText(flightPointInfoVos.get(time).getWindSpeed()+"dm/s");
-                        mBinding.tvVSpeed.setText(flightPointInfoVos.get(time).getVerticalSpeed()+"m/s");
-                        mBinding.tvHSpeed.setText(flightPointInfoVos.get(time).getHorizontalSpeed()+"m/s");
-                        if (time == flightPointInfoVos.size()-1) {
+                        mBinding.tvGpsLevel.setText(flightPointInfoVos.get(time).getSatelliteCount() + "级");
+                        mBinding.tvDistance.setText(flightPointInfoVos.get(time).getOriginDistance() + "米");
+                        mBinding.tvWind.setText(flightPointInfoVos.get(time).getWindSpeed() + "dm/s");
+                        mBinding.tvVSpeed.setText(flightPointInfoVos.get(time).getVerticalSpeed() + "m/s");
+                        mBinding.tvHSpeed.setText(flightPointInfoVos.get(time).getHorizontalSpeed() + "m/s");
+                        if (time == flightPointInfoVos.size() - 1) {
                             timer.cancel();//  调用cancel关闭倒计时
                         }
                     }
                 });
 
             }
-        }, 0,1000);
+        }, 0, 1000);
     }
 
     public void getEquipmentData() {
@@ -166,7 +172,7 @@ public class FlightHistoryActivity extends BaseActivity {
                 getIntent().getStringExtra(ID)).enqueue(new Callback<FlightHistoryDetails>() {
             @Override
             public void onResponse(Call<FlightHistoryDetails> call, Response<FlightHistoryDetails> response) {
-                if (response.body()!=null&&response.body().getCode().equals("200")) {
+                if (response.body() != null && response.body().getCode().equals("200")) {
                     if (!TextUtils.isEmpty(response.body().getResults().getVideoPath())) {
                         StringBuilder stringBuilder = new StringBuilder(response.body().getResults().getVideoPath());
                         String s = stringBuilder.substring(43, response.body().getResults().getVideoPath().length());
@@ -204,7 +210,7 @@ public class FlightHistoryActivity extends BaseActivity {
         super.onDestroy();
         //在activity执行onDestroy时执行mMapView.onDestroy()，销毁地图
         mBinding.mapView.onDestroy();
-        if (timer!=null){
+        if (timer != null) {
             timer.cancel();
         }
     }
