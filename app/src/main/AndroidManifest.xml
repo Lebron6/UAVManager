@@ -109,6 +109,21 @@
             android:name=".activity.LiveShowActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+
+        <activity
+            android:name=".activity.UpdataPasswordActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+        <activity
+            android:name=".activity.MessageActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+
+        <activity
+            android:name=".activity.MessageDetatisActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+
     </application>
 
 </manifest>

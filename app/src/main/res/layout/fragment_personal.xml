@@ -179,6 +179,43 @@
                 android:textColor="#ff8a8c9b"
                 android:textSize="15sp" />
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout_message"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp">
+
+            <ImageView
+                android:layout_width="@dimen/y16"
+                android:layout_height="@dimen/y19"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x20"
+                android:background="@mipmap/ic_message" />
+
+            <TextView
+                android:layout_centerVertical="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x50"
+                android:text="消息"
+                android:textColor="#ff0f1010"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_centerVertical="true"
+
+                android:layout_width="@dimen/y8"
+                android:layout_height="@dimen/y13"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/x20"
+                android:background="@mipmap/ic_right_me"
+                android:textColor="#ff8a8c9b"
+                android:textSize="15sp" />
+        </RelativeLayout>
 
     </LinearLayout>
 

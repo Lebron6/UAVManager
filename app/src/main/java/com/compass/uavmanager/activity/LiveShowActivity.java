@@ -87,6 +87,13 @@ public class LiveShowActivity extends BaseActivity {
                 ToastUtil.showToast("网络异常:获取拉流播放地址失败");
             }
         });
+//        mBinding.player.setVideoPath("http://36.154.125.57:10000/sms/34020000002020000001/flv/hls/32050100081185000004_32050100081185000004.flv");
+//                        mBinding.player.setOnPreparedListener(new IMediaPlayer.OnPreparedListener() {
+//                            @Override
+//                            public void onPrepared(IMediaPlayer mp) {
+//                                mBinding.player.start();
+//                            }
+//                        });
     }
 
     private void initPlayer() {

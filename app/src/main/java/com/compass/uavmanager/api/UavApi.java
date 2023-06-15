@@ -2,6 +2,8 @@ package com.compass.uavmanager.api;
 
 
 import com.compass.uavmanager.entity.AirName;
+import com.compass.uavmanager.entity.BindUav;
+import com.compass.uavmanager.entity.BindUavResult;
 import com.compass.uavmanager.entity.CallBackResult;
 import com.compass.uavmanager.entity.EquipmentDetailsData;
 import com.compass.uavmanager.entity.EquipmentResult;
@@ -72,6 +74,12 @@ public interface UavApi {
     @GET("/uav-data/uavName")
     Call<AirName> getName(@Header("authorization") String token, @Query("uavCode") String uavCode);
 
+    /**
+     * 绑定无人机(首页websocket需要)
+     */
+    @Headers("Content-Type:application/json")
+    @POST("/uav/uavBind/batch")
+    Call<BindUavResult> uavBindBatch(@Header("authorization") String token, @Body BindUav bindUav);
 
     /**
      * 设备管理
@@ -198,6 +206,15 @@ public interface UavApi {
     @Headers("Content-Type:application/x-www-form-urlencoded")
     @GET("/manage/api/v1/live/push/url/{uavSn}")
     Call<LiveUrlResult> pushUrl(@Header("authorization") String token,
+                                @Query("uavSn") String uavSn
+    );
+
+    /**
+     * 获取推流地址（国标）
+     */
+    @Headers("Content-Type:application/x-www-form-urlencoded")
+    @GET("/manage/api/v1/live/pull/gbUrlFlv/{sn}")
+    Call<LiveUrlResult> pushUrlGB(@Header("authorization") String token,
                                 @Query("uavSn") String uavSn
     );
 

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40">
+
+        <RelativeLayout
+            android:id="@+id/layout_finish"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/y10"
+                android:layout_height="@dimen/y16"
+                android:background="@mipmap/icon_back" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="消息回复"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_center"
+        android:layout_below="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="信息通告"
+                android:textColor="#ff0f1010"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginTop="@dimen/y5"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张富贵"
+                    android:textColor="#ff8a8c9b"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#ff8a8c9b" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2022.11.13  12:22"
+                    android:textColor="#ff8a8c9b"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_task_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="这是一个任务的内容，这是一个任务的内容这是一个任务的内容，这是一个任务的内容，"
+            android:textColor="#ff000000"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/layout_bottom"
+        android:layout_marginTop="@dimen/x20"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <EditText
+            android:id="@+id/et_callback"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x60"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginTop="@dimen/x5"
+            android:layout_marginRight="@dimen/x20"
+            android:background="@drawable/bg_item_callback"
+            android:gravity="left|top"
+            android:hint="请输入回复内容"
+            android:maxLines="3"
+            android:paddingLeft="@dimen/x5"
+            android:paddingTop="@dimen/x5"
+            android:paddingRight="@dimen/x5"
+            android:paddingBottom="@dimen/x5"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x44"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginTop="@dimen/x40"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginBottom="@dimen/x30"
+            android:background="@drawable/bg_btn_login"
+            android:elevation="@dimen/x9"
+            android:gravity="center"
+            android:text="提交回复"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:padding="5dp"
+        android:layout_above="@+id/layout_bottom"
+        android:layout_below="@+id/layout_center"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_item_callback"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_callback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+</RelativeLayout>

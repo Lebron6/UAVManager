@@ -7,11 +7,54 @@
     tools:ignore="MissingDefaultResource">
 
 
+
     <com.amap.api.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
+    <RelativeLayout
+        android:id="@+id/layot_area"
+        android:layout_width="@dimen/x340"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/bg_data_select">
+
+        <TextView
+            android:id="@+id/tv_select"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="全部"
+            android:textColorHint="@color/black" />
+
+        <View
+            android:id="@+id/tv_line"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@+id/tv_select"
+            android:background="#DBDBDB" />
+
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:drawableEnd="@mipmap/ic_home_project_down"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:text="请选择区域  "
+            android:textColorHint="#DBDBDB"
+            android:textSize="13dp" />
+
+    </RelativeLayout>
     <TextView
         android:id="@+id/tv_position"
         android:layout_width="80dp"

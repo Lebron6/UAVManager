@@ -23,6 +23,9 @@ public class PreferenceUtils extends BasePreference {
     //用户token的key
     private String USER_TOKEN = "user_token";
 
+    //用户上云token的key
+    private String USER_CLOUD_TOKEN = "user_cloud_token";
+
     //用户ID的key
     private String USER_ID = "user_id";
 
@@ -118,6 +121,15 @@ public class PreferenceUtils extends BasePreference {
 
     public void setUserToken(String token) {
         setString(USER_TOKEN, token);
+    }
+
+    public String getUserCloudToken() {
+        return getString(USER_CLOUD_TOKEN);
+
+    }
+
+    public void setUserCloudToken(String token) {
+        setString(USER_CLOUD_TOKEN, token);
     }
 
     public void setUserName(String name) {

@@ -113,4 +113,5 @@ dependencies {
     implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
 
     implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
+    implementation "org.java-websocket:Java-WebSocket:1.5.1"
 }

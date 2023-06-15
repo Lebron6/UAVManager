@@ -1,5 +1,6 @@
 package com.compass.uavmanager.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,12 +10,15 @@ import android.widget.Toast;
 import androidx.viewbinding.ViewBinding;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.compass.uavmanager.activity.LoginActivity;
+import com.compass.uavmanager.activity.MessageActivity;
 import com.compass.uavmanager.activity.UpdataPasswordActivity;
 import com.compass.uavmanager.api.BaseUrl;
 import com.compass.uavmanager.api.HttpUtil;
 import com.compass.uavmanager.base.BaseFragment;
 import com.compass.uavmanager.databinding.FragmentPersonalBinding;
 import com.compass.uavmanager.entity.UserInfo;
+import com.compass.uavmanager.tools.AppManager;
 import com.compass.uavmanager.tools.PreferenceUtils;
 import com.compass.uavmanager.tools.ToastUtil;
 import retrofit2.Call;
@@ -45,16 +49,24 @@ public class PersonalFragment extends BaseFragment {
     @Override
     protected void initDatas() {
         getUserInfo();
-//        mBinding.layoutMessage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                MessageActivity.actionStart(getActivity());
-//            }
-//        });
+        mBinding.layoutMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MessageActivity.actionStart(getActivity());
+            }
+        });
         mBinding.layoutPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdataPasswordActivity.actionStart(getActivity());
+            }
+        });
+        mBinding.tvLoginout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppManager.getAppManager().finishAllActivity();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+
             }
         });
     }

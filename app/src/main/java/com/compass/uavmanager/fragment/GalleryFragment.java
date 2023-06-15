@@ -98,6 +98,10 @@ public class GalleryFragment extends BaseFragment {
             String text = getDateToString(milliseconds);
             String text2 = getDateToString(milliFinishseconds);
             mBinding.tvTime.setText(text + "-" + text2);
+            page = 1;
+            startTime =text;
+            endTime = text2;
+            getHistoryList();
         }
     };
 

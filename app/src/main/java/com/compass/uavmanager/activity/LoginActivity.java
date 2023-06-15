@@ -20,10 +20,12 @@ import com.compass.uavmanager.api.HttpUtil;
 import com.compass.uavmanager.base.BaseActivity;
 import com.compass.uavmanager.databinding.ActivityLoginBinding;
 import com.compass.uavmanager.databinding.ActivityMainBinding;
+import com.compass.uavmanager.entity.LoginResult;
 import com.compass.uavmanager.entity.LoginSimpleResult;
 import com.compass.uavmanager.entity.LoginValues;
 import com.compass.uavmanager.tools.PreferenceUtils;
 import com.compass.uavmanager.tools.ToastUtil;
+import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 import com.yanzhenjie.permission.AndPermission;
 
@@ -71,8 +73,9 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public ViewBinding getViewBinding() {
-         mBinding = ActivityLoginBinding.inflate(getLayoutInflater());
-        return mBinding;    }
+        mBinding = ActivityLoginBinding.inflate(getLayoutInflater());
+        return mBinding;
+    }
 
     @Override
     public void initData() {
@@ -89,7 +92,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 //                MainActivity.actionStart(LoginActivity.this);
-                toLogin2();
+                toLogin();
             }
         });
         if (!TextUtils.isEmpty(PreferenceUtils.getInstance().getUserName())) {
@@ -99,7 +102,7 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    private void toLogin2() {
+    private void toLogin() {
         if (TextUtils.isEmpty(etAccount.getText().toString())) {
             ToastUtil.showToast("请输入账号");
             return;
@@ -122,7 +125,36 @@ public class LoginActivity extends BaseActivity {
                             PreferenceUtils.getInstance().setUserName(loginValues.getUsername());
                             PreferenceUtils.getInstance().setUserPassword(loginValues.getPassword());
                             PreferenceUtils.getInstance().setUserToken(response.headers().get("authorization"));
-                            Logger.e("获取的TOKEN:"+response.headers().get("authorization"));
+                            Logger.e("获取的TOKEN:" + response.headers().get("authorization"));
+                            toLogin2();
+                            break;
+                    }
+                } else {
+                    Toast.makeText(LoginActivity.this, "网络异常:登陆失败", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginSimpleResult> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, "网络异常:登陆失败", Toast.LENGTH_SHORT).show();
+                Log.e("网络异常:登陆失败", t.toString());
+            }
+        });
+    }
+
+    //需要登录上云获取token，拼接token和websocketUri，连接websocket
+    private void toLogin2() {
+        LoginValues loginValues = new LoginValues();
+        loginValues.setUsername(etAccount.getText().toString());
+        loginValues.setPassword(etPassword.getText().toString());
+        HttpUtil httpUtil = new HttpUtil();
+        httpUtil.createRequest().userLogin(loginValues).enqueue(new Callback<LoginResult>() {
+            @Override
+            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                if (response.body() != null) {
+                    switch (response.body().getCode()) {
+                        case 0:
+                            PreferenceUtils.getInstance().setUserCloudToken(response.body().getData().getAccess_token());
                             MainActivity.actionStart(LoginActivity.this);
                             finish();
                             break;
@@ -133,7 +165,7 @@ public class LoginActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<LoginSimpleResult> call, Throwable t) {
+            public void onFailure(Call<LoginResult> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, "网络异常:登陆失败", Toast.LENGTH_SHORT).show();
                 Log.e("网络异常:登陆失败", t.toString());
             }

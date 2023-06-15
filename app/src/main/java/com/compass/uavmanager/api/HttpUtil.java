@@ -24,7 +24,7 @@ public class HttpUtil {
 
     public UavApi createRequest() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl(BaseUrl.ipAddress1)
                 .client(okhttpclient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

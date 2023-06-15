@@ -46,6 +46,7 @@
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_data_select.xml" value="0.1285" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_flight_state.xml" value="0.1015" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_home_project_half.xml" value="0.1285" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_item_callback.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_item_project.xml" value="0.1045" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_login_input.xml" value="0.104" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/drawable/bg_online_status.xml" value="0.112" />
@@ -58,6 +59,8 @@
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_live_show.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_login.xml" value="0.14130434782608695" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_message.xml" value="0.1" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_message_detatis.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/activity_updata_password.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/default_footer.xml" value="0.12907608695652173" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_equipment.xml" value="0.1" />
@@ -65,17 +68,22 @@
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_flight.xml" value="0.35260416666666666" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_flight_history.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
-        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_personal.xml" value="0.1" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/fragment_personal.xml" value="0.14666666666666667" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/item_callback.xml" value="0.1171875" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/item_equipment_type.xml" value="0.12135416666666667" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/item_flight_history.xml" value="0.1" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/item_gallery.xml" value="0.10552536231884058" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/item_home_project.xml" value="0.1" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/item_message.xml" value="0.1171875" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/item_question.xml" value="0.10833333333333334" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/tv_item.xml" value="0.10833333333333334" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/view_info_window.xml" value="0.16666666666666666" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/view_marker.xml" value="0.10552536231884058" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/view_marker_apron.xml" value="0.14666666666666667" />
         <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/view_marker_project.xml" value="0.1" />
-        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/view_marker_uav.xml" value="0.1" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/view_marker_uav.xml" value="0.16666666666666666" />
+        <entry key="..\:/workspace/uavmanager/app/src/main/res/layout/window_area.xml" value="0.10833333333333334" />
       </map>
     </option>
   </component>

@@ -18,6 +18,7 @@ import com.amap.api.maps.model.PolylineOptions;
 import com.amap.api.maps.utils.SpatialRelationUtil;
 import com.amap.api.maps.utils.overlay.SmoothMoveMarker;
 import com.compass.uavmanager.R;
+import com.compass.uavmanager.api.BaseUrl;
 import com.compass.uavmanager.api.HttpUtil;
 import com.compass.uavmanager.base.BaseActivity;
 import com.compass.uavmanager.databinding.ActivityFlightHistoryBinding;
@@ -177,6 +178,7 @@ public class FlightHistoryActivity extends BaseActivity {
                         StringBuilder stringBuilder = new StringBuilder(response.body().getResults().getVideoPath());
                         String s = stringBuilder.substring(43, response.body().getResults().getVideoPath().length());
                         mBinding.jzVideo.setUp("http://36.154.125.57" + s, "");
+//                        mBinding.jzVideo.setUp(BaseUrl.ipAddress1 + s, "");
                         mBinding.jzVideo.startButton.performClick();
 
                     }
