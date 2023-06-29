@@ -1,5 +1,5 @@
 <resources>
-    <string name="appName">无人机智管</string>
+    <string name="appName">移动端直播</string>
     <string name="picker_sure">确定</string>
     <string name="picker_cancel">取消</string>
     <string name="picker_title">请选择日期</string>

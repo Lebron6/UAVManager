@@ -175,9 +175,9 @@ public class FlightHistoryActivity extends BaseActivity {
             public void onResponse(Call<FlightHistoryDetails> call, Response<FlightHistoryDetails> response) {
                 if (response.body() != null && response.body().getCode().equals("200")) {
                     if (!TextUtils.isEmpty(response.body().getResults().getVideoPath())) {
-                        StringBuilder stringBuilder = new StringBuilder(response.body().getResults().getVideoPath());
-                        String s = stringBuilder.substring(43, response.body().getResults().getVideoPath().length());
-                        mBinding.jzVideo.setUp("http://36.154.125.57" + s, "");
+//                        StringBuilder stringBuilder = new StringBuilder(response.body().getResults().getVideoPath());
+//                        String s = stringBuilder.substring(43, response.body().getResults().getVideoPath().length());
+                        mBinding.jzVideo.setUp(response.body().getResults().getVideoPath(), "");
 //                        mBinding.jzVideo.setUp(BaseUrl.ipAddress1 + s, "");
                         mBinding.jzVideo.startButton.performClick();
 
