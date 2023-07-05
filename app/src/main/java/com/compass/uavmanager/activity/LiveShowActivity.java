@@ -12,9 +12,14 @@ import com.amap.api.maps.AMap;
 import com.compass.uavmanager.api.HttpUtil;
 import com.compass.uavmanager.base.BaseActivity;
 import com.compass.uavmanager.databinding.ActivityLiveShowBinding;
+import com.compass.uavmanager.entity.EventMessage;
 import com.compass.uavmanager.entity.LiveUrlResult;
 import com.compass.uavmanager.tools.PreferenceUtils;
 import com.compass.uavmanager.tools.ToastUtil;
+import com.orhanobut.logger.Logger;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -87,23 +92,20 @@ public class LiveShowActivity extends BaseActivity {
                 ToastUtil.showToast("网络异常:获取拉流播放地址失败");
             }
         });
-//        mBinding.player.setVideoPath("http://36.154.125.57:10000/sms/34020000002020000001/flv/hls/32050100081185000004_32050100081185000004.flv");
-//                        mBinding.player.setOnPreparedListener(new IMediaPlayer.OnPreparedListener() {
-//                            @Override
-//                            public void onPrepared(IMediaPlayer mp) {
-//                                mBinding.player.start();
-//                            }
-//                        });
+
     }
 
-    private void initPlayer() {
-        mBinding.player.setVideoPath("rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp");
-        mBinding.player.setOnPreparedListener(new IMediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(IMediaPlayer mp) {
-                mBinding.player.start();
-            }
-        });
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(EventMessage message) {
+        Logger.e("收到event消息" + message);
+        if (message.getType().equals("app")){
+            updateDroneLocation(message.getMessage());
+        }else{
+            updateDroneLocation2(message.getMessage());
+        }
+
     }
 
     @Override

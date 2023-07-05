@@ -9,6 +9,7 @@
     android:layout_height="62dp"
     android:paddingLeft="14dp"
     android:paddingRight="14dp"
+    android:id="@+id/layout_item"
     android:orientation="vertical"
     android:background="@drawable/bg_item_project"
     tools:ignore="MissingDefaultResource">

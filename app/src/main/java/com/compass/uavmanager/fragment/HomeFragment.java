@@ -23,6 +23,7 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.compass.uavmanager.R;
 import com.compass.uavmanager.activity.LiveShowActivity;
+import com.compass.uavmanager.activity.ProjectDetailsActivity;
 import com.compass.uavmanager.adapter.HomeProjectAdapter;
 import com.compass.uavmanager.api.BaseUrl;
 import com.compass.uavmanager.api.HttpUtil;
@@ -121,10 +122,12 @@ public class HomeFragment extends BaseFragment {
         aMap.setOnMarkerClickListener(new AMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                if (!TextUtils.isEmpty(marker.getSnippet())) {
+                if (!TextUtils.isEmpty(marker.getSnippet())&&marker.getSnippet().length()>1) {
                     LiveShowActivity.actionStart(getActivity(), marker.getSnippet());
-                } else {
-                    ToastUtil.showToast("获取设备SN失败");
+                } else if(!TextUtils.isEmpty(marker.getSnippet())&&homeProject!=null&&homeProject.getResults()!=null&&homeProject.getResults().size()>0){
+                        ProjectDetailsActivity.actionStart(getActivity(),marker.getSnippet()+"",new Gson().toJson(homeProject));
+                }else{
+                    ToastUtil.showToast("无效Marker");
                 }
                 return true;
             }
@@ -171,31 +174,39 @@ public class HomeFragment extends BaseFragment {
 
         adapter = new HomeProjectAdapter(getActivity());
         RecyclerViewHelper.initRecyclerViewG(getActivity(), mBinding.rvProject, adapter, 2);
+        adapter.setOnItemClickListener(new HomeProjectAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                ProjectDetailsActivity.actionStart(getActivity(),position+"",new Gson().toJson(homeProject));
+            }
+        });
         getHomeProjectData();
         getOverViewData();
     }
-
+    HomeProject homeProject;
     private void getHomeProjectData() {
         HttpUtil httpUtil = new HttpUtil();
         httpUtil.createRequest2().manageProject(PreferenceUtils.getInstance().getUserToken()).enqueue(new Callback<HomeProject>() {
             @Override
             public void onResponse(Call<HomeProject> call, Response<HomeProject> response) {
-                if (response.body() != null && response.body().getCode().equals("200")) {
-                    if (response.body().getResults() != null && response.body().getResults().size() > 0) {
-                        adapter.setData(response.body().getResults());
+                 homeProject = response.body();
+                if (homeProject != null && homeProject.getCode().equals("200")) {
+                    Logger.e("获取项目列表:"+new Gson().toJson(homeProject));
+                    if (homeProject.getResults() != null && homeProject.getResults().size() > 0) {
+                        adapter.setData(homeProject.getResults());
                         aMap.moveCamera(CameraUpdateFactory.newCameraPosition(
                                 CameraPosition.fromLatLngZoom(
                                         new LatLng(
-                                                Double.valueOf(response.body().getResults().get(0).getLatitude()),
-                                                Double.valueOf(response.body().getResults().get(0).getLongitude())),
+                                                Double.valueOf(homeProject.getResults().get(0).getLatitude()),
+                                                Double.valueOf(homeProject.getResults().get(0).getLongitude())),
                                         12)));
-                        for (int i = 0; i < response.body().getResults().size(); i++) {
-                            LatLng latLng = new LatLng(Double.valueOf(response.body().getResults().get(i).getLatitude()),
-                                    Double.valueOf(response.body().getResults().get(i).getLongitude()));
-                            addMarkersToMap(latLng, response.body().getResults().get(i));
+                        for (int i = 0; i < homeProject.getResults().size(); i++) {
+//                            if (response.body().getResults().get(i).getProjectState()!=null&&response.body().getResults().get(i).getProjectState().equals("0")){
+                                LatLng latLng = new LatLng(Double.valueOf(homeProject.getResults().get(i).getLatitude()),
+                                        Double.valueOf(homeProject.getResults().get(i).getLongitude()));
+                                addMarkersToMap(latLng, homeProject.getResults().get(i),i);
+//                            }
                         }
-
-
                     }
 
                     //重要 创建自定义适配器
@@ -289,8 +300,9 @@ public class HomeFragment extends BaseFragment {
      * @param djiLatLng
      * @param projectName
      */
-    public void addMarkersToMap(LatLng djiLatLng, HomeProject.ResultsDTO projectName) {
+    public void addMarkersToMap(LatLng djiLatLng, HomeProject.ResultsDTO projectName,int position) {
         aMap.addMarker(new MarkerOptions().position(djiLatLng)
+                .snippet(position+"")
                 .icon(BitmapDescriptorFactory.fromBitmap(convertViewToBitmap(projectName))).draggable(false));
 //                .icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_map_air))).draggable(true));
 
@@ -458,7 +470,6 @@ public class HomeFragment extends BaseFragment {
                         for (int i = 0; i < uavDataVos.size(); i++) {
                             for (int j = 0; j <iCloudSocketInfos.size() ; j++) {
                                 if (uavDataVos.get(i).getUavCode().equals(iCloudSocketInfos.get(j).getUavCode())) {
-                                    Logger.e("获取到上鱼"+uavDataVos.get(i).getUavCode());
 
                                     droneMarker = aMap.addMarker(new MarkerOptions().position(pos2)
                                             .snippet(uavDataVos.get(i).getUavCode())

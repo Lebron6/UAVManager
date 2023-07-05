@@ -2,6 +2,7 @@ package com.compass.uavmanager.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.compass.uavmanager.R;
@@ -24,6 +25,12 @@ public class HomeProjectAdapter extends BaseAdapter<String, ItemHomeProjectBindi
 
     @Override
     protected void onBindingData(BaseHolder<ItemHomeProjectBinding> holder, String s, int position) {
+        holder.getViewBinding().layoutItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickListener.onItemClick(position);
+            }
+        });
         holder.getViewBinding().tvName.setText(results.get(position).getUpdateBy()+"");
         holder.getViewBinding().tvProjectName.setText(results.get(position).getProjectName()+"");
         if (results.get(position).getProjectState().equals("0")){
@@ -35,6 +42,16 @@ public class HomeProjectAdapter extends BaseAdapter<String, ItemHomeProjectBindi
 
         }
     }
+
+     OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(
+            OnItemClickListener onItemClickListener
+    ){this.onItemClickListener=onItemClickListener;}
 
     @Override
     protected ItemHomeProjectBinding onBindingView(ViewGroup viewGroup) {

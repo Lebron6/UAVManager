@@ -179,7 +179,7 @@ public class EquipmentDetailsData {
             /**
              * charger
              */
-            private Integer charger;
+            private String charger;
             /**
              * picUrl
              */
@@ -200,6 +200,10 @@ public class EquipmentDetailsData {
              * healthState
              */
             private Integer healthState;
+            /**
+             * livegbsChannel
+             */
+            private String livegbsChannel;
             /**
              * bindId
              */
@@ -325,11 +329,11 @@ public class EquipmentDetailsData {
                 this.createTime = createTime;
             }
 
-            public Integer getCharger() {
+            public String getCharger() {
                 return charger;
             }
 
-            public void setCharger(Integer charger) {
+            public void setCharger(String charger) {
                 this.charger = charger;
             }
 
@@ -371,6 +375,14 @@ public class EquipmentDetailsData {
 
             public void setHealthState(Integer healthState) {
                 this.healthState = healthState;
+            }
+
+            public String getLivegbsChannel() {
+                return livegbsChannel;
+            }
+
+            public void setLivegbsChannel(String livegbsChannel) {
+                this.livegbsChannel = livegbsChannel;
             }
 
             public Integer getBindId() {
