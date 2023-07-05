@@ -99,11 +99,10 @@ public class LiveShowActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(EventMessage message) {
-        Logger.e("收到event消息" + message);
         if (message.getType().equals("app")){
-            updateDroneLocation(message.getMessage());
+//            updateDroneLocation(message.getMessage());
         }else{
-            updateDroneLocation2(message.getMessage());
+//            updateDroneLocation2(message.getMessage());
         }
 
     }
